@@ -1,0 +1,42 @@
+/* site.css */
+
+body {
+    font-family: 'Oswald', Verdana, Arial, sans-serif;
+  }
+  
+/* container stylings */
+
+  .container {
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  
+/* header stylings */
+
+  h1, h2, h3, h4 {
+    background-color: #3C275A;
+    color: white;
+    border: 1px solid #D6A800;
+    padding: 10px;
+  }
+  
+/* list style */
+
+  li {
+    color: #453674;
+    text-decoration: none;
+  }
+  
+/* list hover style */
+
+  li:hover {
+    background-color: #D6A800;
+    color: #4F3674;
+  }
+  
+/* visited list style */
+
+  li:visited {
+    color: #3C275A;
+  }
