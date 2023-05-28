@@ -1,3 +1,12 @@
+/*
+=================================================
+;  Title: site.css
+;  Author: Alexander Keith
+;  Date: 5/8/2023
+;  Description: site.css file for assignment Assignment 1.3 – Environment Setup
+;================================================
+*/
+
 /* site.css */
 body {
   font-family: 'Oswald', Verdana, Arial, sans-serif;
@@ -45,7 +54,7 @@ float: right;
 /* headers and drop-down menu styling. I didn't have border, color, or background color last class, maybe I missed it. inherit seems new https://developer.mozilla.org/en-US/docs/Web/CSS/inherit UPDATE I commented out the new stuff because it made the box the same color as the bakcground*/
 .app-header {
   font-weight: 400;
-  text-align: center;
+  text-align: left;
   /* border: none; */
   /* color: inherit; */
   /* background-color: inherit; */
@@ -109,4 +118,9 @@ float: right;
 /* visited list style */
   li:visited {
     color: #3C275A;
+  }
+
+  /* removes underline from all links */
+  a {
+    text-decoration: none; 
   }

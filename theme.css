@@ -1,10 +1,20 @@
+/*
+=================================================
+;  Title: theme.css
+;  Author: Alexander Keith
+;  Date: 5/8/2023
+;  Description: theme.css file for assignment Assignment 1.3 – Environment Setup
+;================================================
+*/
+
 /* double check at some point I had the correct styling, possibly missing things from 231 global.css. */
 
 /* card Class Styling */
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-    width: 50%;
+    width: auto;
+    margin: 0 auto;
     
 }
 
@@ -97,23 +107,23 @@
 
 /* body.light-theme HTML Element Selector styling using double hyphens to define CSS custom properties */
 body.light-theme{
---text-color: #000;
---background-color: #fff;
---anchor-color: #4F3674;
---h1-background-color: #3c275a;
---h1-border-color: #D6A800;
---heading-background-color: #3c275a;
---heading-color: #fff;
---heading-border-color: #D6A800;
---anchor-hover-color: #4F3674;
---anchor-hover-background-color: #D6a800;
---card-background-color: #fff;
---card-title-color: #4F3674;
---btn-background-color: #4F3674;
---btn-color: #fff;
---btn-hover-background-color: #D6A800;
---btn-hover-color: #4F3674;
---input-border-color: #ccc;
+    --text-color: #000;
+    --background-color: #fff;
+    --anchor-color: #4F3674;
+    --h1-background-color: #3c275a;
+    --h1-border-color: #D6A800;
+    --heading-background-color: #3c275a;
+    --heading-color: #fff;
+    --heading-border-color: #D6A800;
+    --anchor-hover-color: #4F3674;
+    --anchor-hover-background-color: #D6a800;
+    --card-background-color: #fff;
+    --card-title-color: #4F3674;
+    --btn-background-color: #4F3674;
+    --btn-color: #fff;
+    --btn-hover-background-color: #D6A800;
+    --btn-hover-color: #4F3674;
+    --input-border-color: #ccc;
 }
 
 /* body.dark-theme HTML Element Selector styling using double hyphens to define CSS custom properties */
