@@ -18,12 +18,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         rel="stylesheet">
-
         <script src="theme.js"></script>
-        
-            
     </head> 
-    
     <body class="light-theme">
         <div id="container">
             <!-- Toggle button for light and dark mode -->
@@ -31,7 +27,6 @@
             
             <br>
             <h1 class="app-header">Alexander Keith's Landing Page</h1>
-
                 <h2>WEB 330 Enterprise JavaScript II</h2>
                 <hr>
                 <div class="card">
@@ -70,52 +65,42 @@
                     </div>
                 </div>
         </div>
-            <script>
-                /**
-                * Set the default theme to light if one has not been set in the browsers localStorage
-                */
-                setDefaultTheme();
+        <script>
+            //Set default theme to light
+            setDefaultTheme();
 
-                /**
-                * Function to switch the users selected website theme
-                * @param x (this instance)
-                */
-                function toggleMode(x) {
-        
-                    let colorTheme = document.body.classList; // get the body's CSS class
-                    let iconMode = x.classList; // get the current classes assigned to the triggered button
+            //Set function layout
+            function toggleMode(x) {
 
-                    /**
-                    * If the current body class is set to the light-theme, update the user's preference to the dark-theme in the browsers
-                    * local storage.
-                    */
-                    if (colorTheme.value === "light-theme") {
-            
-                        localStorage.clear();
-                        localStorage.setItem("mode", "dark-theme");
-                        localStorage.setItem("iconMode", "fa-toggle-on");
-                        localStorage.setItem("iconText", "Dark Mode");
-                    }
-                    /**
-                    * If the current body class is set to the dark-theme, update the user's preference to the light-theme in the browsers
-                    * local storage.
-                    */
-                    else {
-            
+                //Assigns variables
+                let colorTheme = document.body.classList;
+                let iconMode = x.classList;
+
+                //Assigns string actions
+                if (colorTheme.value === "light-theme") {
+                    localStorage.clear();
+                    localStorage.setItem("mode", "dark-theme");
+                    localStorage.setItem("iconMode", "fa-toggle-on");
+                    localStorage.setItem("iconText", "Dark Mode");
+                } else {
                     localStorage.clear();
                     localStorage.setItem("mode", "light-theme");
                     localStorage.setItem("iconMode", "fa-toggle-off");
                     localStorage.setItem("iconText", "Light Mode");
-                    }
-
-                    /**
-                    * Apply the updated selection to the HTML page elements
-                    */
-                    colorTheme.value = localStorage.getItem("mode");
-                    iconMode.value = `fa ${localStorage.getItem("iconMode")} pull-right`;
-                    document.getElementById("icon-text").innerHTML = localStorage.getItem("iconText");
                 }
 
+                //Assigns output to HTML
+                colorTheme.value = localStorage.getItem("mode");
+                iconMode.value = `fa ${localStorage.getItem("iconMode")} pull-right`;
+                document.getElementById("icon-text").innerHTML = localStorage.getItem("iconText");
+            }
+
+            function clearLocalStorage() {
+                localStorage.clear();
+                document.body.classList.value = "light-theme";
+                document.getElementById("icon-text").innerHTML = "Light Mode";
+                document.getElementById("icon-mode").classList.value = "fa fa-toggle-off pull-right";
+            }
         </script>
     </body>
 </html>
