@@ -1,0 +1,105 @@
+<!--
+=================================================
+;  Title: keith-palindrome.html
+;  Author: Alexander Keith
+;  Date: 6/4/2023
+;  Description: keith-palindrome.html file for Assignment 2.2 – Palindrome App
+;================================================
+-->
+
+<!-- index.html-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>WEB 330 - Enterprise JavaScript II</title>
+        <link href="../site.css" type="text/css" rel="stylesheet">
+        <link href="../theme.css" type="text/css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        rel="stylesheet">
+        <script src="../theme.js"></script>
+    </head> 
+    <body class="light-theme">
+        <div id="container">
+            <!-- Toggle button for light and dark mode -->
+            <i onclick="toggleMode(this)" id="icon-mode" class="fa fa-toggle-off pull-right" style="font-size: 28px;"><span id="icon-text"></span></i>
+            <br>
+            <h1 class="app-header">Welcome to the Palindrome App!</h1>
+            <div class="assign-content">
+                <!-- Display card with title -->
+                <div class="card">
+                    <div class="card-title">Palindrome Checker</div>
+                    <div class="card-content">
+                        <!-- Form for input -->
+                        <div class="form">
+                            <!-- Input box and label -->
+                            <div class="form-field">
+                                <label for="txtPhrase">Phrase Value:</label>
+                                <input type="text" class="input" id="txtPhrase" name="txtPhrase">
+                            </div>
+                            <!-- Submission button -->
+                            <div class="form-field">
+                                <button class="btn btn-primary" id="btnCheckPhrase" onclick="showResults()">Check Phrase</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Results Card -->
+    <div class="assign-container">
+        <div class="assign-content">
+            <div class="card">
+                <div class="card-title ">Palindrome Results</div>
+                <div class="card-content">
+                <!-- Display Results -->
+                <div id="assign-results-header"></div>
+                <div class="assign-results-text" id="assign-results"></div>
+                </div>
+            </div>
+            <!-- Return home link -->
+            <a href="../index.html">Return</a>
+        </div>
+        <!-- Palindrome.js link -->
+        <script src="keith-palindrome.js"></script>
+    </div> 
+            <script>
+                //Set default theme to light
+                setDefaultTheme();
+
+                //Set function layout
+                function toggleMode(x) {
+
+                    //Assigns variables
+                    let colorTheme = document.body.classList;
+                    let iconMode = x.classList;
+
+                    //Assigns string actions
+                    if (colorTheme.value === "light-theme") {
+                        localStorage.clear();
+                        localStorage.setItem("mode", "dark-theme");
+                        localStorage.setItem("iconMode", "fa-toggle-on");
+                        localStorage.setItem("iconText", "Dark Mode");
+                    } else {
+                        localStorage.clear();
+                        localStorage.setItem("mode", "light-theme");
+                        localStorage.setItem("iconMode", "fa-toggle-off");
+                        localStorage.setItem("iconText", "Light Mode");
+                    }
+
+                    //Assigns output to HTML
+                    colorTheme.value = localStorage.getItem("mode");
+                    iconMode.value = `fa ${localStorage.getItem("iconMode")} pull-right`;
+                    document.getElementById("icon-text").innerHTML = localStorage.getItem("iconText");
+                }
+
+                function clearLocalStorage() {
+                    localStorage.clear();
+                    document.body.classList.value = "light-theme";
+                    document.getElementById("icon-text").innerHTML = "Light Mode";
+                    document.getElementById("icon-mode").classList.value = "fa fa-toggle-off pull-right";
+                }
+            </script>            
+    </body>
+</html>
