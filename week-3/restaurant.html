@@ -19,6 +19,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <script src="theme.js"></script>
+        <script type="module" src="index.js"></script>
+        <script type="module" src="bill.js"></script>
+        <script type="module" src="beverage.js"></script>
+        <script type="module" src="appetizer.js"></script>
+        <script type="module" src="maincourse.js"></script>
+        <script type="module" src="dessert.js"></script>
     </head>
     <body class="light-theme">
         <div id="container">
@@ -246,26 +252,9 @@
             // Calculates the total bill.
             let total = bill.getTotal()
 
-            getTotal() {
-        let total = 0;
-        [this._beverages, this._appetizers, this._mainCourses, this._desserts].forEach((arr) => {
-            arr.forEach((item) => {
-                total += parseFloat(item.price);
-            });
-        });
-        return total.toFixed(2);
-    }
-}
-
             // Displays a string of the total bill on the results card.
             document.getElementById("order-total").innerHTML = `Your order total is ${total}.`;
             }
         </script>
-        <script type="module" src="index.js"></script>
-        <script type="module" src="bill.js"></script>
-        <script type="module" src="beverage.js"></script>
-        <script type="module" src="appetizer.js"></script>
-        <script type="module" src="maincourse.js"></script>
-        <script type="module" src="dessert.js"></script>
     </body>
 </html>
