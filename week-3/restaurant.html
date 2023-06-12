@@ -246,10 +246,26 @@
             // Calculates the total bill.
             let total = bill.getTotal()
 
+            getTotal() {
+        let total = 0;
+        [this._beverages, this._appetizers, this._mainCourses, this._desserts].forEach((arr) => {
+            arr.forEach((item) => {
+                total += parseFloat(item.price);
+            });
+        });
+        return total.toFixed(2);
+    }
+}
+
             // Displays a string of the total bill on the results card.
             document.getElementById("order-total").innerHTML = `Your order total is ${total}.`;
             }
         </script>
         <script type="module" src="index.js"></script>
+        <script type="module" src="bill.js"></script>
+        <script type="module" src="beverage.js"></script>
+        <script type="module" src="appetizer.js"></script>
+        <script type="module" src="maincourse.js"></script>
+        <script type="module" src="dessert.js"></script>
     </body>
 </html>
