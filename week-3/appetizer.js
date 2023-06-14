@@ -7,17 +7,11 @@
 ;==========================================
 */
 
-// Imports Product class from the product module
-import { Product } from "./product";
 
-// Defines Appetizer class that extends Product class
+import { Product } from "./product.js";
+
 export class Appetizer extends Product {
     constructor(name, price) {
         super(name, price);
     }
 }
-
-
-
-
-

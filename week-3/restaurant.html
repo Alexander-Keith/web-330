@@ -190,73 +190,60 @@
             }
         </script>         
 
-        <script type="module">
-            // Imports the modules from the index.js file.
-            import { Bill, Beverage, Appetizer, MainCourse, Dessert } from "./index.js";
-
-            // Creates a click event handler that calculates total order when button is clicked.
-            document.getElementById("btnOrder").onclick = function () {
-
-            // Retrieves the beverage elements and their checkboxes.
-            const beveragesEl = document.getElementById("beverages");
-            const beverages = beveragesEl.getElementsByTagName("input");
-
-            // Retrieves the appetizer elements and their checkboxes.
-            const appetizersEl = document.getElementById("appetizers");
-            const appetizers = appetizersEl.getElementsByTagName("input");
-
-            // Retrieves the main courses elements and their checkboxes.
-            const mainCoursesEl = document.getElementById("mainCourses");
-            const mainCourses = mainCoursesEl.getElementsByTagName("input");
-
-            // Retrieves the desserts elements and their checkboxes.
-            const dessertsEl = document.getElementById("desserts");
-            const desserts = dessertsEl.getElementsByTagName("input");
-
-            // Creates a new Bill object to track the total.
-            const bill = new Bill();
-
-            // Adds selected beverages to the bill.
-            for (let beverage of beverages) {
-                if (beverage.checked) {
-                bill.addBeverage(new Beverage(beverage.name, beverage.value));
-                }
-            }
-
-            // Adds selected appetizers to the bill.
-            for (let appetizer of appetizers) {
-                if (appetizer.checked) {
-                bill.addAppetizer(new Appetizer(appetizer.name, appetizer.value));
-                }
-            }
-
-            // Adds selected main courses to the bill.
-            for (let mainCourse of mainCourses) {
-                if (mainCourse.checked) {
-                bill.addMainCourse(new MainCourse(mainCourse.name, mainCourse.value));
-                }
-            }
-
-            // Adds selected desserts to the bill.
-            for (let dessert of desserts) {
-                if (dessert.checked) {
-                bill.addDessert(new Dessert(dessert.name, dessert.value));
-                }
-            }
-
-            // Calculates the total bill.
-            let total = bill.getTotal()
-
-        // Displays a string of the total bill on the results card.
-        document.getElementById("order-total").innerHTML = `Your order total is ${total}.`;
-            }
-
-        </script>
+<script type="module">
+    // Import classes from index.js file. 
+    import { Bill, Appetizer, Beverage, Dessert, MainCourse } from "./index.js";
+  
+    //Reference DOM elements.
+    const btnOrder = document.getElementById("btnOrder");
+    const beveragesSection = document.getElementById("beverages");
+    const appetizersSection = document.getElementById("appetizers");
+    const mainCoursesSection = document.getElementById("mainCourses");
+    const dessertsSection = document.getElementById("desserts");
+  
+    //Create bill class instance. 
+    const billInstance = new Bill();
+  
+    //Onclick event handler. 
+    btnOrder.onclick = () => {
+  
+    // Clear the bill before calculating the new total.
+    billInstance.clearBill();
+  
+    //For loop to process the selection of beverages. 
+    for (const checkbox of beveragesSection.querySelectorAll('input[type="checkbox"]:checked')) {
+      const name = checkbox.name;
+      const value = parseFloat(checkbox.value);
+      const beverage = new Beverage(name, value);
+      billInstance.addBeverage(beverage);
+    }
+  //For loop to process the selection of appetizers.
+    for (const checkbox of appetizersSection.querySelectorAll('input[type="checkbox"]:checked')) {
+      const name = checkbox.name;
+      const value = parseFloat(checkbox.value);
+      const appetizer = new Appetizer(name, value);
+      billInstance.addAppetizer(appetizer);
+    }
+    //For loop to process the selection of main courses.
+    for (const checkbox of mainCoursesSection.querySelectorAll('input[type="checkbox"]:checked')) {
+      const name = checkbox.name;
+      const value = parseFloat(checkbox.value);
+      const mainCourse = new MainCourse(name, value);
+      billInstance.addMainCourse(mainCourse);
+    }
+    //For loop to process the selection of deserts.
+    for (const checkbox of dessertsSection.querySelectorAll('input[type="checkbox"]:checked')) {
+      const name = checkbox.name;
+      const value = parseFloat(checkbox.value);
+      const dessert = new Dessert(name, value);
+      billInstance.addDessert(dessert);
+    }
+    //Calculate the total and push order total to the dom with 2 decimal points. 
+    const orderTotal = billInstance.getTotal();
+    document.getElementById("orderTotal").textContent = `Order Total: $${orderTotal.toFixed(2)}`;
+  };
+  
+  </script>
         <script type="module" src="index.js"></script>
-        <script type="module" src="bill.js"></script>
-        <script type="module" src="beverage.js"></script>
-        <script type="module" src="appetizer.js"></script>
-        <script type="module" src="maincourse.js"></script>
-        <script type="module" src="dessert.js"></script>
     </body>
 </html>

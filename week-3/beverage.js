@@ -7,8 +7,19 @@
 ;==========================================
 */
 
+/*
 // Imports Product class from product module
 import { Product } from "./product";
+
+// Defines Beverage class that extends Product class
+export class Beverage extends Product {
+    constructor(name, price) {
+        super(name, price);
+    }
+}
+*/
+// Imports Product class from product module
+import { Product } from "./product.js";
 
 // Defines Beverage class that extends Product class
 export class Beverage extends Product {
