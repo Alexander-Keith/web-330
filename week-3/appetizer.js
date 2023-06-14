@@ -7,6 +7,18 @@
 ;==========================================
 */
 
+//testing theory 
+/*
+// Imports Product class from the product module
+import { Product } from "./product";
+
+// Defines Appetizer class that extends Product class
+export class Appetizer extends Product {
+    constructor(name, price) {
+        super(name, price);
+    }
+}
+*/
 
 import { Product } from "./product.js";
 
